@@ -1,0 +1,30 @@
+version: "3.0"
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.local
+    container_name: server
+    # env_file:
+    #   - ./server/.env.local
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/usr/src/app
+    networks:
+      - backend
+
+  pwa:
+    build:
+      context: ./pwa
+      dockerfile: Dockerfile
+    container_name: pwa
+    ports:
+      - 4000:4000
+    volumes:
+      - ./pwa:/usr/src/app
+    networks:
+      - backend
+
+networks:
+  backend:
