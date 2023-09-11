@@ -3,7 +3,6 @@ import { PlusIcon, SendIcon } from "lucide-react";
 import { Fragment, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useChat } from "ai/react";
 import { Textarea } from "@/components/ui/textarea";
 import BackBtn from "@/components/BackBtn";
 import useChatWithDoc from "@/hooks/ai/useChatWithDoc";

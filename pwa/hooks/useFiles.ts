@@ -5,9 +5,9 @@ import { DateSort } from "@tbd54566975/dwn-sdk-js";
 import { filesAtom } from "@/state/storage/filesAtom";
 import DigitalDocument from "@/types/DigitalDocument";
 import { loadingAtom } from "@/state/loadingAtom";
-import { RecordsReadResponse } from "@tbd54566975/web5/dist/types/dwn-api";
 import useUploadDocToIndex from "./useUploadDocToIndex";
 import { Web5Context } from "@/app/Web5Provider";
+import { RecordsReadResponse } from "@web5/api";
 
 export default function useFiles() {
   const [files, setFiles] = useAtom(filesAtom);
@@ -48,9 +48,12 @@ export default function useFiles() {
     if (web5Context) {
       setLoading(true);
       for (var i = 0; i < files.length; i++) {
+        const blob = new Blob([files[i]], {
+          type: "image/png",
+        });
         // Upload image to blob store
         const blobResult = await web5Context.web5.dwn.records.create({
-          data: files[i],
+          data: blob,
           message: {
             dataFormat: files[i].type,
           },

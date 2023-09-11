@@ -1,7 +1,6 @@
 import { userDetailsAtom } from "@/state/user/userDetails";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
-import { Web5 } from "@tbd54566975/web5/browser";
 import { loadingAtom } from "@/state/loadingAtom";
 import { useContext } from "react";
 import { Web5Context } from "@/app/Web5Provider";
@@ -22,8 +21,9 @@ export default function useLogin() {
 
     setUserDetails({ did: web5Context!.did });
 
-    // Check if the user has a profile created
+    if (!web5Context) throw Error("Web5 Context not ready");
 
+    // Check if the user has a profile created
     const { records } = await web5Context?.web5.dwn.records.query({
       message: {
         filter: {

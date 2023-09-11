@@ -1,5 +1,4 @@
 "use client";
-import useWeb5 from "@/hooks/useWeb5";
 import { balanceAtom } from "@/state/finance/balanceAtom";
 import { useAtom } from "jotai";
 import { useEffect } from "react";

@@ -14,27 +14,12 @@ const nextConfig = {
       },
     ],
   },
-  // webpack: (config, { isServer }) => {
-  //   // Fixes npm packages that depend on `fs` module
-  //   if (!isServer) {
-  //     config.resolve.fallback = {
-  //       ...config.resolve.fallback, // if you miss it, all the other options in fallback, specified
-  //       // by next.js will be dropped. Doesn't make much sense, but how it is
-  //       fs: false, // the solution
-  //       module: false,
-  //       perf_hooks: false,
-  //     };
-  //   }
-
-  //   config.module.rules.push({
-  //     test: /\.node/,
-  //     use: "raw-loader",
-  //   });
-
-  //   config.experiments = { asyncWebAssembly: true, layers: true };
-
-  //   return config;
-  // },
+ webpack: (config, { isServer }) => {
+  if (isServer) {
+    config.externals = [...config.externals, "canvas", "jsdom"];
+  }
+  return config;
+},
 };
 
 module.exports = withPWA(nextConfig);

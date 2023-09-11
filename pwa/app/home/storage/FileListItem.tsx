@@ -2,7 +2,6 @@
 import { MoreHorizontal, Pencil, Trash2 } from "lucide-react";
 import FileItemIcon from "./FileItemIcon";
 import { motion } from "framer-motion";
-import useWeb5 from "@/hooks/useWeb5";
 import DigitalDocument from "@/types/DigitalDocument";
 import {
   DropdownMenu,

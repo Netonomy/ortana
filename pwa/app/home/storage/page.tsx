@@ -6,7 +6,6 @@ import { isMobile } from "react-device-detect";
 import useFiles from "@/hooks/useFiles";
 import { useDropzone } from "react-dropzone";
 import { arrayToFileList } from "@/lib/utils";
-import useWeb5 from "@/hooks/useWeb5";
 import DataTopBar from "@/components/DataTopBar";
 import { useMediaQuery } from "react-responsive";
 import { Web5Context } from "@/app/Web5Provider";

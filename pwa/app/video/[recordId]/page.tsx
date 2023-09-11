@@ -3,7 +3,6 @@ import { Web5Context } from "@/app/Web5Provider";
 import MyRingLoader from "@/components/MyRingLoader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import useWeb5 from "@/hooks/useWeb5";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";

@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import useWeb5 from "./useWeb5";
 import DigitalDocument from "@/types/DigitalDocument";
 import { Web5Context } from "@/app/Web5Provider";
 

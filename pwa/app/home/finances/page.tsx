@@ -13,7 +13,6 @@ import KeyPad from "./KeyPad";
 import { useState } from "react";
 import AvatarProfile from "@/components/AvatarProfile";
 import useProfile from "@/hooks/useProfile";
-import useWeb5 from "@/hooks/useWeb5";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import QRCode from "react-qr-code";

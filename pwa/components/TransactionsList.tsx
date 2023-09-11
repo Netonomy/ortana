@@ -10,7 +10,6 @@ import { transactionsAtom } from "@/state/finance/transactionsAtom";
 import { timeStampToTimeAgo } from "@/utils/timestampToTimeAgo";
 
 export default function TransactionsList() {
-  // const { btcWallet } = useWeb5();
   const [transactions, setTransactions] = useAtom(transactionsAtom);
 
   // async function fetchTransactions() {
