@@ -1,9 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
+
   const tagLines = [
     "Chat with your data",
     "AI Assistants for employees",
@@ -28,7 +31,7 @@ export default function Home() {
   }, [currentTagLine]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center border-[10px] border-primary">
+    <main className="flex min-h-screen flex-col items-center justify-center border-[10px] border-primary relative">
       {/** Body */}
       <div className="flex flex-col items-center mb-[80px]">
         {/** Big Header Section */}
@@ -97,18 +100,25 @@ export default function Home() {
           exit={{ opacity: 0, y: 100 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <Button className="shadow-2xl drop-shadow-2xl" size={"lg"}>
-            Sign Up
-          </Button>
-
           <Button
             className="shadow-2xl drop-shadow-2xl"
             size={"lg"}
-            variant={"secondary"}
+            onClick={() => {
+              router.push("https://app.ortana.ai");
+            }}
           >
-            Login
+            Launch Web App
           </Button>
         </motion.div>
+      </div>
+
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2">
+        <Button
+          variant="link"
+          onClick={() => (window.location.href = "https://netonomy.io")}
+        >
+          By Netonomy
+        </Button>
       </div>
     </main>
   );
